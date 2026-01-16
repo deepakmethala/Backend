@@ -113,7 +113,7 @@ const userRegister = asyncHandler(async function(req,res){
     const createdUser = await User.findById(user._id).select("-password -refreshToken")
 
     if(!createdUser){
-      throw new ApiError(500,"Somethig went wrong while registering a user")
+      throw new ApiError(500,"Something went wrong while registering a user")
     }
 
     return res.status(201).json(
@@ -301,7 +301,7 @@ const coverImageUpdate = asyncHandler(async function(req,res){
     req.user?._id,
     {
       $set:{
-        coverImage:coverImage.url
+        coverimage:coverImage.url
       }
     },{
       new:true
